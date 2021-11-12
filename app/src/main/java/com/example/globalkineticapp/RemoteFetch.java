@@ -2,7 +2,6 @@ package com.example.globalkineticapp;
 
 import android.content.Context;
 
-import androidx.annotation.NonNull;
 
 import org.json.JSONObject;
 

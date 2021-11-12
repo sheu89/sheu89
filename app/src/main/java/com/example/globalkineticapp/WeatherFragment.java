@@ -47,7 +47,6 @@ public class WeatherFragment extends Fragment implements LocationListener {
     private TextView updatedField;
     private TextView currentTemperatureField;
     private TextView detailsField;
-    private Fragment frag;
     private Button getloc;
     LocationManager locationManager;
     String provider;
@@ -66,19 +65,14 @@ public class WeatherFragment extends Fragment implements LocationListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.activity_weather_fragment, container, false);
-        updatedField = (TextView)rootView.findViewById(R.id.updated_field);
-        cityField = (TextView)rootView.findViewById(R.id.city_field);
-        currentTemperatureField = (TextView)rootView.findViewById(R.id.current_temperature_field);
-        weatherIcon = (TextView)rootView.findViewById(R.id.weather_icon);
-        detailsField = (TextView)rootView.findViewById(R.id.details_field);
-        getloc = (Button)rootView.findViewById(R.id.buttonFragment);
+        updatedField = rootView.findViewById(R.id.updated_field);
+        cityField = rootView.findViewById(R.id.city_field);
+        currentTemperatureField = rootView.findViewById(R.id.current_temperature_field);
+        weatherIcon = rootView.findViewById(R.id.weather_icon);
+        detailsField = rootView.findViewById(R.id.details_field);
+        getloc = rootView.findViewById(R.id.buttonFragment);
         weatherIcon.setTypeface(weatherFont);
-        getloc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getLocation();
-            }
-        });
+        getloc.setOnClickListener(v -> getLocation());
 
         return rootView;
 
@@ -166,10 +160,7 @@ public class WeatherFragment extends Fragment implements LocationListener {
                         }
                     });
 
-                    handler.postDelayed(new Runnable() {
-                        public void run() {
-                            dialog.dismiss();
-                        }}, 2000);
+                    handler.postDelayed(dialog::dismiss, 2000);
                 }
             }
         }.start();

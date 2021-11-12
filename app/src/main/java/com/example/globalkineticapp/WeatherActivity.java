@@ -2,7 +2,6 @@ package com.example.globalkineticapp;
 import androidx.appcompat.app.AppCompatActivity;
 import android.text.InputType;
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -51,12 +50,7 @@ public class WeatherActivity extends AppCompatActivity {
         final EditText input = new EditText(this);
         input.setInputType(InputType.TYPE_CLASS_TEXT);
         builder.setView(input);
-        builder.setPositiveButton("Go", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                changeCity(input.getText().toString());
-            }
-        });
+        builder.setPositiveButton("Go", (dialog, which) -> changeCity(input.getText().toString()));
         builder.show();
     }
     public void changeCity(String city){
