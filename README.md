@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @sheu89
 - 👀 I’m interested in Software Development using Java or C# Programming
-- 🌱 I’m currently learning Android Development
+- 🌱 Android Development
 - 💞️ I’m looking to collaborate on Android and Web development
 - 📫 How to reach me ...
 
